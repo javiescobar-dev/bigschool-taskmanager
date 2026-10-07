@@ -8,6 +8,14 @@ def print_menu():
         print("5. Salir")
 
 
+def validate_int(input_str):
+    try:
+        return int(input_str)
+    except ValueError:
+        print("Por favor, introduce un número válido.")
+        return None
+
+
 def main():
 
     task_mgr = TaskManager()
@@ -24,11 +32,13 @@ def main():
             case "2":
                 task_mgr.list_tasks()
             case "3":
-                id = int(input("Introduce el número de la tarea a completar: "))
-                task_mgr.complete_task(id)
+                id = validate_int(input("Introduce el número de la tarea a completar: "))
+                if id is not None:
+                    task_mgr.complete_task(id)
             case "4":
-                id = int(input("Introduce el número de la tarea a eliminar: "))
-                task_mgr.delete_task(id)
+                id = validate_int(input("Introduce el número de la tarea a eliminar: "))
+                if id is not None:
+                    task_mgr.delete_task(id)
             case "5":
                 print("Saliendo...")
                 break
