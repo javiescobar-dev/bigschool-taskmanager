@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "id": 1,
+        "description": "Crear una cuenta en GitHub e iniciar sesi\u00f3n; instalar Git en tu computadora si no lo tienes.",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "description": "Inicializar el repositorio en tu proyecto: git init, git add . y git commit -m \"Primer commit\".",
+        "completed": false
+    },
+    {
+        "id": 3,
+        "description": "Crear un repositorio nuevo en GitHub (sin README si ya lo tienes local).",
+        "completed": false
+    },
+    {
+        "id": 4,
+        "description": "Conectar el remoto y subir cambios: git remote add origin https://github.com/usuario/repositorio.git y git push -u origin main.",
+        "completed": false
+    },
+    {
+        "id": 5,
+        "description": "Verificar en GitHub que los archivos y commits se hayan subido correctamente.",
+        "completed": false
+    }
+]

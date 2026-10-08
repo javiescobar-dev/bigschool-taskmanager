@@ -1,12 +1,14 @@
 from task_manager import TaskManager
+from ai_service import create_simple_tasks
 
 def print_menu():
         print("\n --- Gestor de tareas inteligente ---")
         print("1. Añadir tarea")
-        print("2. Listar tareas")
-        print("3. Completar tarea")
-        print("4. Eliminar tarea")
-        print("5. Salir")
+        print("2. Añadir tarea compleja (con IA)")
+        print("3. Listar tareas")
+        print("4. Completar tarea")
+        print("5. Eliminar tarea")
+        print("6. Salir")
 
 
 def validate_int(input_str):
@@ -31,16 +33,25 @@ def main():
                 description = input("Introduce la descripción de la tarea: ")
                 task_mgr.add_task(description)
             case "2":
-                task_mgr.list_tasks()
+                description = input("Introduce la descripción de la tarea compleja: ")
+                subtasks = create_simple_tasks(description)
+                for subtask in subtasks:
+                    if not subtask.startswith("Error:"):
+                        task_mgr.add_task(subtask)
+                    else:
+                        print(subtask)
+                        break
             case "3":
+                task_mgr.list_tasks()
+            case "4":
                 id = validate_int(input("Introduce el número de la tarea a completar: "))
                 if id is not None:
                     task_mgr.complete_task(id)
-            case "4":
+            case "5":
                 id = validate_int(input("Introduce el número de la tarea a eliminar: "))
                 if id is not None:
                     task_mgr.delete_task(id)
-            case "5":
+            case "6":
                 print("Saliendo...")
                 break
             case _:
